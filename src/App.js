@@ -1,28 +1,30 @@
 import { useState } from 'react';
+import Game from './components/Game/Game';
+import Result from './components/Result/Result';
 import './index.css';
+import { questions } from './api/api';
 
 function App() {
-  const [count, setCount] = useState(0);
-  const onClickPlus = () => {
-    setCount(count + 1);
-  };
-  const onClickMinus = () => {
-    if (count > 0) {
-      setCount(count - 1);
+  const [step, setStep] = useState(0);
+  const [correct, setcorrect] = useState(0);
+
+  const question = questions[step];
+
+  const onclickVariant = (index) => {
+    setStep(step + 1);
+    if (index === question.correct) {
+      setcorrect(correct + 1);
     }
   };
+
+  console.log(question);
   return (
     <div className="App">
-      <div>
-        <h2>Counter:</h2>
-        <h1>{count}</h1>
-        <button onClick={onClickMinus} className="minus">
-          - Minus
-        </button>
-        <button onClick={onClickPlus} className="plus">
-          Plus +
-        </button>
-      </div>
+      {step !== questions.length ? (
+        <Game step={step} question={question} onclickVariant={onclickVariant} />
+      ) : (
+        <Result step={step} correct={correct} />
+      )}
     </div>
   );
 }
