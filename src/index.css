@@ -1,73 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 body {
+  background-color: #f9f2ed;
+}
+html,
+body {
+  overflow-x: hidden;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #edf6f9;
+  padding: 0;
+}
+
+* {
+  font-family: 'Inter', system-ui !important;
+  box-sizing: border-box;
+  user-select: none;
 }
 
 .App {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
-}
-
-.App h1 {
-  color: #000;
-  font-size: 7rem;
-  margin: 0;
-  margin-bottom: 20px;
-}
-
-.App h1.plus {
-  color: #2a9d8f;
-}
-
-.App h1.minus {
-  color: #e63946;
-}
-
-.App h2 {
-  font-size: 2rem;
-  margin: 0;
-  color: #556581;
-}
-
-.App button {
-  background: transparent;
-  border: 2px solid transparent;
-  text-align: center;
-  font-size: 22px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 30px;
+  max-width: 800px;
+  margin: 100px auto;
+  background-color: #fff;
+  padding: 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
   border-radius: 15px;
-  padding: 10px 25px;
+  overflow: hidden;
+}
+
+.block input {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 20px 20px;
+  letter-spacing: 1.3px;
+  outline: none;
+  margin-top: 20px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.currencies {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.currencies li {
+  display: inline-flex;
+  padding: 10px 20px;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
   cursor: pointer;
-  margin: 0 10px;
-  transition: all 0.05s ease-in-out;
+  justify-content: center;
+  flex: 1;
 }
 
-.App button.minus {
-  background-color: #e63946;
+.currencies li:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.currencies li:active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.currencies li.active {
+  background-color: #16b67f;
   color: #fff;
-  box-shadow: 0 4px 0 rgba(230, 57, 70, 0.9); /* darken(#e63946, 10%) */
-  border: 1px solid rgba(230, 57, 70, 0.85); /* darken(#e63946, 15%) */
 }
 
-.App button.plus {
-  background-color: #2a9d8f;
-  color: #fff;
-  box-shadow: 0 4px 0 rgba(42, 157, 143, 0.9); /* darken(#2a9d8f, 10%) */
-  border: 1px solid rgba(42, 157, 143, 0.85); /* darken(#2a9d8f, 15%) */
+.currencies li:last-of-type {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 50px;
+  border-right: 0;
 }
 
-.App button:hover {
-  transform: translateY(-2px);
+.currencies li:last-of-type svg {
+  width: 16px;
+  height: 16px;
 }
 
-.App button:active {
-  transform: translateY(2px);
-  box-shadow: none;
+@media (max-width: 767.98px) {
+  .App {
+    grid-template-columns: auto;
+  }
 }
