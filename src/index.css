@@ -1,73 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #edf6f9;
+  background-color: #eff0f1;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .App {
+  padding: 50px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+h1 {
+  font-family: 'Merriweather', serif;
+}
+
+.tags {
+  list-style: none;
+  padding: 0;
+}
+
+.tags li {
+  display: inline-block;
+  padding: 12px 18px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 18px;
+  border: 1px solid transparent;
+  transition: all 0.15s ease-in-out;
+}
+
+.tags li:hover {
+  border-color: #000;
+}
+
+.tags li.active {
+  background-color: #000;
+  color: #fff;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  margin-top: 40px;
+}
+
+@media (max-width: 1000px) {
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.collection {
+  max-width: 470px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.collection:hover {
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+@media (max-width: 1000px) {
+  .collection {
+    width: 100%;
+  }
+}
+
+.collection h4 {
+  margin: 0;
+  margin-top: 15px;
+  font-size: 20px;
+  font-family: 'Merriweather', serif;
+}
+
+.collection img {
+  object-fit: cover;
+}
+
+.collection__big {
+  height: 250px;
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.collection__bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.collection__mini {
+  width: 31%;
+  height: 80px;
+  border-radius: 20px;
+}
+
+.top {
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
+  flex-wrap: wrap;
 }
 
-.App h1 {
-  color: #000;
-  font-size: 7rem;
+.search-input {
+  font-size: 16px;
+  width: 250px;
+  height: 50px;
+  padding: 0 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  outline: none;
+  transition: all 0.15s ease-in-out;
+}
+
+.search-input:focus {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.pagination {
+  list-style: none;
+  padding: 0;
   margin: 0;
-  margin-bottom: 20px;
+  margin-top: 40px;
 }
 
-.App h1.plus {
-  color: #2a9d8f;
-}
-
-.App h1.minus {
-  color: #e63946;
-}
-
-.App h2 {
-  font-size: 2rem;
-  margin: 0;
-  color: #556581;
-}
-
-.App button {
-  background: transparent;
-  border: 2px solid transparent;
-  text-align: center;
-  font-size: 22px;
-  border-radius: 15px;
-  padding: 10px 25px;
+.pagination li {
+  display: inline-block;
+  padding: 10px 17px;
+  background-color: white;
+  font-size: 18px;
+  border-radius: 10px;
+  margin-right: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  margin: 0 10px;
-  transition: all 0.05s ease-in-out;
 }
 
-.App button.minus {
-  background-color: #e63946;
+.pagination li.active {
+  background-color: black;
   color: #fff;
-  box-shadow: 0 4px 0 rgba(230, 57, 70, 0.9); /* darken(#e63946, 10%) */
-  border: 1px solid rgba(230, 57, 70, 0.85); /* darken(#e63946, 15%) */
-}
-
-.App button.plus {
-  background-color: #2a9d8f;
-  color: #fff;
-  box-shadow: 0 4px 0 rgba(42, 157, 143, 0.9); /* darken(#2a9d8f, 10%) */
-  border: 1px solid rgba(42, 157, 143, 0.85); /* darken(#2a9d8f, 15%) */
-}
-
-.App button:hover {
-  transform: translateY(-2px);
-}
-
-.App button:active {
-  transform: translateY(2px);
-  box-shadow: none;
 }
